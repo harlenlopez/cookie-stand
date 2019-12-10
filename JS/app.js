@@ -16,11 +16,8 @@ var Seattle = {
       console.log(hours[i]);
       Seattle.hourlyArray[i] = Math.floor(this.randomCustomer() * Seattle.avgSales);
     }
-    // console.log(this.hourlyArray);
-    // return this.estimeSales() * this.avgSales;
   }
 };
-Seattle.estimeSales();
 
 
 var Tokyo = {
@@ -79,52 +76,38 @@ var Lima = {
   }
 };
 
-function hoursAppender(hours) {
-  for (var i = 0; i < hours.length; i++) {
-    var hoursHolder = document.getElementById('hours');
+function hoursAppender(saleAmount) {
+  var runningTotal = 0;
+  for (var i = 0; i < saleAmount.length; i++) {
+    var saleAmountHolder = document.getElementById('city-holder');
     var newLi = document.createElement('li');
-    newLi.textContent = `${hours}: ${Seattle} cookies`;   
-    console.log(hours);
+    newLi.textContent = `${saleAmount}: ${Seattle} cookies`;   
+    console.log(saleAmount);
     var newLi1 = document.createElement('li');
-    newLi1.textContent = `${hours[i]}`;
-    hoursHolder.appendChild(newLi1);
+    newLi1.textContent = `${hours[i]}: ${saleAmount[i]} cookies`;
+    saleAmountHolder.appendChild(newLi1);
+    runningTotal += saleAmount[i];
   }
+  return runningTotal;
 }
 console.log(Seattle);
 
-var cities = [Seattle, Tokyo, Dubai, Paris, Lima];
-var cityHolder = document.getElementById('city-holder');
-for (var i = 0; i < cities.length; i++) {
-  // console.log(cities);
-  var newLi = document.createElement('li');
-  newLi.textContent = `${cities[i].name}`;
-  //console.log(cities[i]);
-  cityHolder.appendChild(newLi);
-  hoursAppender(Seattle.hourlyArray);
-
-
-
+function createHourlyLi(hourlyArray) {
+  var cities = [Seattle, Tokyo, Dubai, Paris, Lima];
+  var cityHolder = document.getElementById('city-holder');
+  for (var i = 0; i < cities.length; i++) {
+    var newLi = document.createElement('li');
+    var newLi1 = document.createElement('li');
+    newLi.textContent = `${cities[i].name}`;
+    cityHolder.appendChild(newLi);
+    var total = hoursAppender(hourlyArray);
+    newLi1.textContent = `Total: ${total} cookies`;
+    cityHolder.appendChild(newLi1);
+  }
 }
-console.log(cities);
 
-// console.log('working');
-// firstDog = {
-//   weight: 35,
-//   breed: jindo,
-//   name: boog,
-//   imgUrl: 'https:',
-//   descriptionWords: ['hungry', 'blue eyes'],
-//   getDescription: function () {
-//     return this.descriptionWords[Math.floor(Math.random) * this.descriptionWords.length];
-//   }
-// };
-// firstcat = {
-//   weight: 4,
-//   breed: calico,
-//   name: mew,
-//   imgUrl: 'https'
-//   descriptionWords: ['small', 'meowy'],
-//   getDescription: function () {
-//     this.descriptionWords[Math.floor(math.random * this.descriptionWords.lenght)]
-//   }
-// };
+// Create City and Hourly List
+Seattle.estimeSales();
+
+createHourlyLi(Seattle.hourlyArray);
+
