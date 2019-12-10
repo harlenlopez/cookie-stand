@@ -21,18 +21,7 @@ var Seattle = {
   }
 };
 Seattle.estimeSales();
-function hoursAppender(hours) {
-  for (var i = 0; i < hours.length; i++) {
-    var hoursHolder = document.getElementById('hours');
-    var newLi = document.createElement('li');
-    newLi.textContent = `hours: ${Seattle[i].name} cookies`;   
-    console.log(hours);
-     var newLi = document.createElement('li');
-    newLi.textContent = `${hours[i]}`;
-    hoursHolder.appendChild(newLi);
-  }
-}
-console.log(Seattle);
+
 
 var Tokyo = {
   name: 'Tokyo',
@@ -90,6 +79,18 @@ var Lima = {
   }
 };
 
+function hoursAppender(hours) {
+  for (var i = 0; i < hours.length; i++) {
+    var hoursHolder = document.getElementById('hours');
+    var newLi = document.createElement('li');
+    newLi.textContent = `${hours}: ${Seattle} cookies`;   
+    console.log(hours);
+    var newLi1 = document.createElement('li');
+    newLi1.textContent = `${hours[i]}`;
+    hoursHolder.appendChild(newLi1);
+  }
+}
+console.log(Seattle);
 
 var cities = [Seattle, Tokyo, Dubai, Paris, Lima];
 var cityHolder = document.getElementById('city-holder');
