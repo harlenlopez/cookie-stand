@@ -26,26 +26,32 @@ City.prototype.averageCookiesPerHour = function () {
     console.log(hours[i]);
     this.hourlyArray[i] = Math.floor(this.randomCustomer() * this.avgSales);
     console.log(this.hourlyArray[i]);
-
   }
 };
 
 City.prototype.render = function () {
   var cityTable = document.getElementById('city-table');
   var row = document.createElement('tr');
-  var column = document.createElement('td');
   for (var i = 0; i < hours.length; i++) {
+    var column = document.createElement('td');
     var data = this.randomCustomer();
     column.textContent = data;
     this.total += data;
     this.hourlyArray.push(data);
     row.appendChild(column);
   }
+  var totalColumn = document.createElement('td');
+  totalColumn.textContent = this.total;
+  row.appendChild(totalColumn);
   cityTable.appendChild(row);
 
 };
 
 seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
 
 
 
