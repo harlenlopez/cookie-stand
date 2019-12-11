@@ -6,14 +6,11 @@ function City(cityName, minCustomer1, maxCustomer1, avgSales) {
   this.maxCustomer = maxCustomer1;
   this.avgSales = avgSales;
   this.hourlyArray = [];
+  this.total = 0;
   var randomCustomer = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
   return randomCustomer;
 }
 
-// this.avgSales = function(){
-//   var avgSales = Math.floor(this.randomCustomer() * this.avgCustomer);
-//   return avgSales;
-// };
 var seattle = new City('Seattle', 23, 65, 6.3);
 var tokyo = new City('Tokyo', 3, 24, 1.2);
 var dubai = new City('Dubai', 11, 38, 3.7);
@@ -35,9 +32,28 @@ City.prototype.averageCookiesPerHour = function () {
 
 City.prototype.render = function () {
   var cityTable = document.getElementById('city-table');
-  this.one = document.createElement('tr');
-  this.cityHolder = documnet.createElement('td');
+  var row = document.createElement('tr');
+  var column = document.createElement('td');
+  for (var i = 0; i < hours.length; i++) {
+    var data = this.randomCustomer();
+    column.textContent = data;
+    this.total += data;
+    this.hourlyArray.push(data);
+    row.appendChild(column);
+  }
+  cityTable.appendChild(row);
+
 };
+
+seattle.render();
+
+
+
+
+// var totalColumn = document.createElement('td');
+// totalColumn.textContent = 'total:' + this.total;
+// HTMLTableRowElement.appendChild(row);
+
 //   cityTable.appendChild(Cities);
 // };
 // //   var weigthCell = document.getElement('td'){
