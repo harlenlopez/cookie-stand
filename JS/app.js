@@ -1,12 +1,16 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var allCities = [];
 // console.log('js');
-function City(cityName, minCustomer1, maxCustomer1, avgSales) {
+function City(cityName, minCustomer1, maxCustomer1, avgSales, totalCity) {
   this.city = cityName;
   this.minCustomer = minCustomer1;
   this.maxCustomer = maxCustomer1;
   this.avgSales = avgSales;
   this.hourlyArray = [];
   this.total = 0;
+  allCities.push(this);
+
+
   var randomCustomer = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
   return randomCustomer;
 }
@@ -23,15 +27,26 @@ City.prototype.randomCustomer = function () {
 
 City.prototype.averageCookiesPerHour = function () {
   for (var i = 0; i < hours.length; i++) {
-    console.log(hours[i]);
     this.hourlyArray[i] = Math.floor(this.randomCustomer() * this.avgSales);
-    console.log(this.hourlyArray[i]);
   }
 };
+
+City.prototype.totalsPerHour = function () {
+  for (var i = 0; i < hours.length; i++) {
+    this.hourlyArray[i] = Math.floor(this.averageCookiesPerHour() * this.allCities);
+  }
+};
+
+// City.prototype.cityListNames = function() {
+//   for (var i =0; i < this.cityName.length; i++){
+//     this.cityArray[i] = Math.floor(this.cityListNames() * this.cityNames);
+//   }
+// };
 
 City.prototype.render = function () {
   var cityTable = document.getElementById('city-table');
   var row = document.createElement('tr');
+  row.textContent = this.city;
   for (var i = 0; i < hours.length; i++) {
     var column = document.createElement('td');
     var data = this.randomCustomer();
@@ -39,19 +54,109 @@ City.prototype.render = function () {
     this.total += data;
     this.hourlyArray.push(data);
     row.appendChild(column);
+    console.log(cityTable);
   }
-  var totalColumn = document.createElement('td');
-  totalColumn.textContent = this.total;
-  row.appendChild(totalColumn);
+  var totalrow = document.createElement('td');
+  totalrow.textContent = this.total;
+  row.appendChild(totalrow);
   cityTable.appendChild(row);
+  console.log(totalrow);
 
-};
+  for (var j = 0; j < allCities.length; j++);
+  var totalColumn = document.createElement('td');
+  var totalData = this.totalsPerHour();
+  totalColumn.textContent = this.totalData;
+  this.total += totalData;
+  row.appendChild(totalColumn);
+
+  var cityTotalRow = document.createElement('tr');
+  cityTotalRow.textContent = this.total;
+  row.appendChild(cityTotalRow);
+  cityTable.appendChild(row);
+  console.log(cityTotalRow);
+
+  // for (var h = 0; h < totalCity; h++);
+  // var masterColumn = document.createElement('td');
+  // var masterData = this.document.masterTotals();
+  // totalColumn.textContent = this.masterData;
+  // this.total += masterData;
+  // row.appendChild(masterColumn);
+
+  // var masterCityTotalRow = document.createElement('tr');
+  // masterCityTotalRow.textContent = this.total;
+  // row.appendChild(masterCityTotalRow);
+  // cityTable.appendChild(row);
+  // console.log(masterCityTotalRow);
+  
+// };
 
 seattle.render();
 tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+// allCities.render();
+////
+/////
+////
+///practice code from class day 3
+//
+//
+///
+///
+///
+
+///
+// function handleFormSubmitted(event) {
+//   event.preventDefualt();
+//   console.log('we submitted a form');
+//   var breedInput = document.getElementById('breed');
+//   var breedValue = breedInput.value;
+//   var newPet = new newPet('breed of american shorthair');
+//   newPet.render();
+
+// }
+// //set up event listerner on the form
+// //which element
+// var formElelment = document.getElementById('new-pets');
+// formElelment.addEventListener('submit', handleFormSubmitted); 
+
+
+// function renderFooter() {
+//   var footerRow = document.createElement9('tr');
+//   var totalTd = document.createElement('td');
+//   totalId.textContent = 'Total';
+//   footerRow.appendChild(totalTd);
+//   var grandTotal = 0;
+//   for (var i = 0; i < salesHours.lentgh; i++) {
+//     var hourlyTotal = 0;
+//     for (var j = 0; j < cityArray.length; j++){
+//         hourlyTotal = hourlyTotal + cityArray[j].averageCookiesPerHour[i];
+
+
+//     }
+//     grandTotal = grandTotal + hourlyTotal;
+//     var hourlyTotalTd = document.createElement('td');
+//     hourlyTotalTd.textContent = hourlyTotal;
+//     footerRow.appendChild(hourlyTotalTd);
+//   }
+// }
+
+////////////
+////////////
+///////////
+//////////
+/////////
+/////////
+/////////
+
+
+
+
+
+
+
+
 
 
 
