@@ -111,11 +111,11 @@ totalCityHours();
 //   var newPet = new newPet('breed of american shorthair');
 //   newPet.render();
 
-// }
-// //set up event listerner on the form
-// //which element
-// var formElelment = document.getElementById('new-pets');
-// formElelment.addEventListener('submit', handleFormSubmitted); 
+}
+//set up event listerner on the form
+//which element
+var formElelment = document.getElementById('new-pets');
+formElelment.addEventListener('submit', handleFormSubmitted); 
 
 
 // function renderFooter() {
@@ -136,7 +136,7 @@ totalCityHours();
 //     hourlyTotalTd.textContent = hourlyTotal;
 //     footerRow.appendChild(hourlyTotalTd);
 //   }
-// }
+}
 
 ////////////
 ////////////
