@@ -1,7 +1,7 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var allCities = [];
 // console.log('js');
-function City(cityName, minCustomer1, maxCustomer1, avgSales, totalCity) {
+function City(cityName, minCustomer1, maxCustomer1, avgSales) {
   this.city = cityName;
   this.minCustomer = minCustomer1;
   this.maxCustomer = maxCustomer1;
@@ -11,8 +11,8 @@ function City(cityName, minCustomer1, maxCustomer1, avgSales, totalCity) {
   allCities.push(this);
 
 
-  var randomCustomer = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
-  return randomCustomer;
+  // var randomCustomer = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1)) + this.minCustomer;
+  // return randomCustomer;
 }
 
 var seattle = new City('Seattle', 23, 65, 6.3);
@@ -30,18 +30,6 @@ City.prototype.averageCookiesPerHour = function () {
     this.hourlyArray[i] = Math.floor(this.randomCustomer() * this.avgSales);
   }
 };
-
-City.prototype.totalsPerHour = function () {
-  for (var i = 0; i < hours.length; i++) {
-    this.hourlyArray[i] = Math.floor(this.averageCookiesPerHour() * this.allCities);
-  }
-};
-
-// City.prototype.cityListNames = function() {
-//   for (var i =0; i < this.cityName.length; i++){
-//     this.cityArray[i] = Math.floor(this.cityListNames() * this.cityNames);
-//   }
-// };
 
 City.prototype.render = function () {
   var cityTable = document.getElementById('city-table');
@@ -64,37 +52,45 @@ City.prototype.render = function () {
 
   for (var j = 0; j < allCities.length; j++);
   var totalColumn = document.createElement('td');
-  var totalData = this.totalsPerHour();
   totalColumn.textContent = this.totalData;
-  this.total += totalData;
   row.appendChild(totalColumn);
 
-  var cityTotalRow = document.createElement('tr');
-  cityTotalRow.textContent = this.total;
-  row.appendChild(cityTotalRow);
-  cityTable.appendChild(row);
-  console.log(cityTotalRow);
+};
 
-  // for (var h = 0; h < totalCity; h++);
-  // var masterColumn = document.createElement('td');
-  // var masterData = this.document.masterTotals();
-  // totalColumn.textContent = this.masterData;
-  // this.total += masterData;
-  // row.appendChild(masterColumn);
+function totalCityHours() {
+  var masterTotal = 0;
+  var cityTableGrab = document.getElementById('city-table');
+  var totalsRow = document.createElement('tr');
+  var totalsRowName = document.createElement('td');
+  totalsRowName.textContent = 'Totals';
+  totalsRow.appendChild(totalsRowName);
 
-  // var masterCityTotalRow = document.createElement('tr');
-  // masterCityTotalRow.textContent = this.total;
-  // row.appendChild(masterCityTotalRow);
-  // cityTable.appendChild(row);
-  // console.log(masterCityTotalRow);
-  
-// };
+  for (var h = 0; h < hours.length; h++) {
+    var hourlyTotal = 0;
+    for (var i = 0; i < allCities.length; i++) {
+      hourlyTotal += allCities[i].hourlyArray[h];
+
+    }
+    var eachTd = document.createElement('td');
+    eachTd.textContent = hourlyTotal;
+    totalsRow.appendChild(eachTd);
+    masterTotal = masterTotal + hourlyTotal;
+  }
+  var grandTotal = document.createElement('td');
+  grandTotal.textContent = masterTotal;
+  totalsRow.appendChild(grandTotal);
+  cityTableGrab.appendChild(totalsRow);
+}
+
 
 seattle.render();
 tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+
+totalCityHours();
+
 // allCities.render();
 ////
 /////

@@ -20,6 +20,10 @@ city-table{
   border-block-color: black;
   color: blue;
 }
-#td{
-  border: brown;
+td{
+  border-block: brown;
+  background-color: grey
+}
+tbody{
+  border-block-color: brown;
 }
