@@ -4,7 +4,7 @@
   background-color: dark brown ;
 }
 body{
-  background-img: url("");
+  background-color: lightblue;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,6 +14,16 @@ font-family: freckle-face;
 }
 #salmon {
   border-radius: 40px;
-  width: 200px;
-  float: center;
+  width: 400px;
+}
+city-table{
+  border-block-color: black;
+  color: blue;
+}
+td{
+  border-block: brown;
+  background-color: grey
+}
+tbody{
+  border-block-color: brown;
 }
