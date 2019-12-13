@@ -54,16 +54,17 @@ City.prototype.render = function () {
   var totalColumn = document.createElement('td');
   totalColumn.textContent = this.totalData;
   row.appendChild(totalColumn);
-
+  console.log('works');
 };
+
 
 function totalCityHours() {
   var masterTotal = 0;
   var cityTableGrab = document.getElementById('city-table');
-  var totalsRow = document.createElement('tr');
-  var totalsRowName = document.createElement('td');
-  totalsRowName.textContent = 'Totals';
-  totalsRow.appendChild(totalsRowName);
+  var TotalCookiesRow = document.createElement('tr');
+  var TotalCookiesRowName = document.createElement('td');
+  TotalCookiesRowName.textContent = 'Totals';
+  TotalCookiesRow.appendChild(TotalCookiesRowName);
 
   for (var h = 0; h < hours.length; h++) {
     var hourlyTotal = 0;
@@ -73,152 +74,26 @@ function totalCityHours() {
     }
     var eachTd = document.createElement('td');
     eachTd.textContent = hourlyTotal;
-    totalsRow.appendChild(eachTd);
+    TotalCookiesRow.appendChild(eachTd);
     masterTotal = masterTotal + hourlyTotal;
+    console.log('working');
+    // debugger;
   }
   var grandTotal = document.createElement('td');
   grandTotal.textContent = masterTotal;
-  totalsRow.appendChild(grandTotal);
-  cityTableGrab.appendChild(totalsRow);
+  TotalCookiesRow.appendChild(grandTotal);
+  cityTableGrab.appendChild(TotalCookiesRow);
+  event.preventDefault();
+  document.getElementById('my-Button').addEventListener('click', 'Submit');
+
+
+  // debugger;
 }
-
-
 seattle.render();
 tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
 
+
 totalCityHours();
-
-// allCities.render();
-////
-/////
-////
-///practice code from class day 3
-//
-//
-///
-///
-///
-
-///
-// function handleFormSubmitted(event) {
-//   event.preventDefualt();
-//   console.log('we submitted a form');
-//   var breedInput = document.getElementById('breed');
-//   var breedValue = breedInput.value;
-//   var newPet = new newPet('breed of american shorthair');
-//   newPet.render();
-
-}
-//set up event listerner on the form
-//which element
-var formElelment = document.getElementById('new-pets');
-formElelment.addEventListener('submit', handleFormSubmitted); 
-
-
-// function renderFooter() {
-//   var footerRow = document.createElement9('tr');
-//   var totalTd = document.createElement('td');
-//   totalId.textContent = 'Total';
-//   footerRow.appendChild(totalTd);
-//   var grandTotal = 0;
-//   for (var i = 0; i < salesHours.lentgh; i++) {
-//     var hourlyTotal = 0;
-//     for (var j = 0; j < cityArray.length; j++){
-//         hourlyTotal = hourlyTotal + cityArray[j].averageCookiesPerHour[i];
-
-
-//     }
-//     grandTotal = grandTotal + hourlyTotal;
-//     var hourlyTotalTd = document.createElement('td');
-//     hourlyTotalTd.textContent = hourlyTotal;
-//     footerRow.appendChild(hourlyTotalTd);
-//   }
-}
-
-////////////
-////////////
-///////////
-//////////
-/////////
-/////////
-/////////
-
-
-
-
-
-
-
-
-
-
-
-
-// var totalColumn = document.createElement('td');
-// totalColumn.textContent = 'total:' + this.total;
-// HTMLTableRowElement.appendChild(row);
-
-//   cityTable.appendChild(Cities);
-// };
-// //   var weigthCell = document.getElement('td'){
-// //     weightCell.textContent = this.breed;
-// //     petRow.appendChild(breedCell);
-// //   }
-
-// //   }
-// // function hoursAppender(saleAmount) {
-// //   var runningTotal = 0;
-//   for (var i = 0; i < saleAmount.length; i++) {
-//     var saleAmountHolder = document.getElementById('city-holder');
-//     var newLi = document.createElement('li');
-//     newLi.textContent = `${saleAmount}: ${Seattle} cookies`;
-//     console.log(saleAmount);
-//     var newLi1 = document.createElement('li');
-//     newLi1.textContent = `${hours[i]}: ${saleAmount[i]} cookies`;
-//     saleAmountHolder.appendChild(newLi1);
-//     runningTotal += saleAmount[i];
-//   }
-//   return runningTotal;
-// }
-// console.log(Seattle);
-
-// function createHourlyLi(city) {
-//   var cityHolder = document.getElementById('city-holder');
-//   for (var i = 0; i < city.length; i++) {
-//     var newLi = document.createElement('li');
-//     newLi.textContent = `${city[i].name}`;
-//     cityHolder.appendChild(newLi);
-//     var total = hoursAppender(city.hourlyArray);
-//     var newLi1 = document.createElement('li');
-//     newLi1.textContent = `Total: ${total} cookies`;
-//     cityHolder.appendChild(newLi1);
-//   }
-// }
-
-// Pet.prototype.getDisposition = function() {
-//   var randomIndex = Math.floor(Math.random() * this.getDescription.length);
-//   return this.descriptionWords[randomIndex];
-// };
-
-// Pet.prototype.render = function(){
-//   var animalTable = document.getElementById('animal-table');
-//   var petRow = document.createElement('tr');
-//   var breedCell = document.createElement('td');
-//   breedCell.textContent = this.breed;
-
-
-
-//   var weigthCell = document.getElement('td'){
-//     weightCell.textContent = this.breed;
-//     petRow.appendChild(breedCell);
-//   }
-
-// var firstDog = new Pet('jindo', 35, 'good boy');
-// var firstCt = new Pet('calico', 4, 'purrrrfect');
-// var iguana = new Pet('green', 'cslly', 'cuddly');
-
-// var pets = [firstCt, firstDog, iguana];
-
