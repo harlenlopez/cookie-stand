@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,28 +7,72 @@
   <title>Cookie-Stand</title>
   <link href="https://fonts.googleapis.com/css?family=Freckle+Face&display=swap" rel="stylesheet">
 
-</head>Salmon Cookies
+</head>
 
 <body>
+  <img id="salmon" src="salmon.png" alt="salmon">
+  <table>
+    <thead>
+      <tr>
+        <td></td>
+        <td>6am</td>
+        <td>7am</td>
+        <td>8am</td>
+        <td>9am</td>
+        <td>10am</td>
+        <td>11am</td>
+        <td>12pm</td>
+        <td>1pm</td>
+        <td>2pm</td>
+        <td>3pm</td>
+        <td>4pm</td>
+        <td>5pm</td>
+        <td>6pm</td>
+        <td>7pm</td>
+        <td>Total</td>
+      </tr>
+    </thead>
+    <tbody id="city-table">
+    </tbody>
+    <tfoot id="city-table-footer">
+    </tfoot>
+    <div>
+  </table>
+  <form id="New-Location">
+    <fieldset>
+      <legend style="align-content: center;"></legend>
+      <label for="City">City</label>
+      <input id="City" type="" />
+      <label for="Minimum_Customers">Minimum Customers</label>
+      <input id="Minimum_Customers" type="number" />
+      <label for="Max_Customers">Max Customers</label>
+      <input id="Max_Customers" type="number" />
+      <label for="Average_Customers">Average Customers</label>
+      <input id="Average_Customers" type="number" />
+      <button id="my-Button"></button>
+    </fieldset>
+  </form>
+  <tr>
+    <td></td>
+  </tr>
 
   <header>
+    <h1> Salmon Cookies </h1>
 
-    <img id="salmon" scr="salmon.png" alt="salmon">
-    <h1 style="background-color: rgb(114, 114, 209) ;"></h1> welcome to our site
+    <h1 style="background-color: rgb(53, 53, 139) ;"></h1> welcome to our site
   </header>
   <div>
+    <main>
+      <p> we are a salmon based cookie company
+        <ul id="city-holder">
 
-  </div>
-  <main>
-    <p>
-      <ul id="city-holder">
-
-      </ul>
-    </p>
-  </main>
-  <br>
-  <footer>
-
-  </footer>
-  <script src="./js/app.js"></script>
+        </ul>
+      </p>
+    </main>
+    <br>
+    <footer>
+    </footer>
+    <script src="./js/app.js"></script>
 </body>
+
+</html>
