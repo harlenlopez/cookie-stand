@@ -11,6 +11,11 @@ body{
 }
 header{
 font-family: freckle-face;
+border: blue;
+
+}
+thead{
+  border: khaki;
 }
 #salmon {
   border-radius: 40px;
@@ -30,3 +35,9 @@ tbody{
 button{
   color: blue;
 }
+ ul{
+   color: blue;
+   border-color: blueviolet;
+   background-color: chocolate; opacity:85%;
+   border-radius: 12px;
+ }
