@@ -41,3 +41,7 @@ button{
    background-color: chocolate; opacity:85%;
    border-radius: 12px;
  }
+ img{
+   width: 400px;
+   height: 200px;
+ }
